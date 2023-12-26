@@ -59,6 +59,7 @@ const config = {
     { locale: "en-US", text: "English" },
     { locale: "fr", text: "Français" },
     { locale: "es", text: "Español" },
+    { locale: "it", text: "Italiano" },
   ],
 };
 

@@ -2,21 +2,25 @@
   "toc": {
     "fr": "Sur cette page",
     "en-US": "On this page",
-    "es": "En esta página"
+    "es": "En esta página",
+    "it": "Su questa pagina"
   },
   "editLink": {
     "fr": "Modifier cette page",
     "en-US": "Edit this page",
-    "es": "Edita esta página"
+    "es": "Edita esta página",
+    "it": "Modifica questa pagina"
   },
   "feedback": {
     "fr": "Une question ? Faites-nous en part →",
     "en-US": "Question? Give us feedback →",
-    "es": "¿Pregunta? Danos tu opinión →"
+    "es": "¿Pregunta? Danos tu opinión →",
+    "it": "Domanda? Dacci un feedback →"
   },
   "last_update": {
     "fr": "Dernière mise à jour le",
     "en-US": "Last update on",
-    "es": "Ultima actualización el"
+    "es": "Ultima actualización el",
+    "it": "Ultimo aggiornamento su"
   }
 }
