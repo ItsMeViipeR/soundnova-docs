@@ -1,80 +1,60 @@
 import React from "react";
 import { useRouter } from "next/router";
+import translations from "./translations.json";
 
 const LOCALE = "fr";
 
 const config = {
-  logo: <span>Archipel Project</span>,
+  logo: <span>SoundNova - Documentation</span>,
   project: {
-    link: "https://github.com/archipel-project",
+    link: "https://github.com/ItsMeViipeR/soundnova",
   },
-  docsRepositoryBase: "https://github.com/archipel-project/docs",
+  docsRepositoryBase: "https://github.com/ItsMeViipeR/soundnova-docs",
   primaryHue: {
-    dark: 40,
-    light: 40,
+    dark: 200,
+    light: 360,
   },
   toc: {
     float: true,
     title: () => {
       const { locale = LOCALE } = useRouter();
 
-      switch (locale) {
-        case "fr":
-          return "Sur cette page";
-        case "en-US":
-          return "On this page";
-        case "es":
-          return "En esta página";
-      }
+      return translations.toc[locale];
     },
   },
-  footer: {
-    text: "MIT 2023 © Archipel Project",
-  },
   editLink: {
-    text: "Modifier cette page",
+    text: () => {
+      const { locale = LOCALE } = useRouter();
+
+      return translations.editLink[locale];
+    },
   },
-  notFound: {
-    content: "Soumettre un ticket pour signaler un lien cassé →",
+  feedback: {
+    content: () => {
+      const { locale = LOCALE } = useRouter();
+
+      return translations.feedback[locale];
+    },
   },
 
-  gitTimestamp: function GitTimestamp({ timestamp }) {
+  gitTimestamp: function GitTimestamp({ timestamp }: { timestamp: Date }) {
     const { locale = LOCALE } = useRouter();
+    const last_update = translations.last_update;
+
     return (
       <>
-        Dernière mise à jours le{" "}
+        {last_update[locale]}{" "}
         <time dateTime={timestamp.toISOString()}>
           {timestamp.toLocaleDateString(locale, {
             day: "numeric",
-            month: "long",
+            month: "short",
             year: "numeric",
           })}
         </time>
       </>
     );
   },
-  useNextSeoProps: () => ({ titleTemplate: "%s – Archipel Project" }),
-  head: (
-    <>
-      <meta name="msapplication-TileColor" content="#222129" />
-      <meta httpEquiv="Content-Language" content="fr" />
-      <meta
-        name="description"
-        content="Archipel Project: documentation et base de connaissance du projet"
-      />
-      <meta name="twitter:card" content="summary_large_image" />
-      <meta name="twitter:site" content="@shuding_" />
-      <meta
-        property="og:title"
-        content="Archipel Project: documentation et base de connaissance du projet"
-      />
-      <meta
-        property="og:description"
-        content="Archipel Project: documentation et base de connaissance du projet"
-      />
-      <meta name="apple-mobile-web-app-title" content="Archipel Project" />
-    </>
-  ),
+  useNextSeoProps: () => ({ titleTemplate: "%s – SoundNova – Documentation" }),
   i18n: [
     { locale: "en-US", text: "English" },
     { locale: "fr", text: "Français" },
